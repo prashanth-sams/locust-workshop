@@ -4,4 +4,5 @@
 logs/
 venv/
 test.ipynb
-data/
+**/__pycache__
+**/**/__pycache__

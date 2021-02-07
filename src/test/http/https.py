@@ -1,7 +1,7 @@
 from locust import HttpUser, between, task, SequentialTaskSet, tag
 import json
 
-# locust -f src/http/https.py -u 1 -r 1 --logfile logs/output.log --loglevel DEBUG --only-summary --tags login --headless
+# locust -f src/test/http/https.py -u 1 -r 1 --logfile logs/output.log --loglevel DEBUG --only-summary --tags login --headless
 
 
 class LoadUser(HttpUser):

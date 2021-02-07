@@ -1,0 +1,8 @@
+[locust script]
+locustfile: src/test/distrib/config_distribution.py
+host: https://moodle.uni-due.de
+
+[locust worker mode]
+worker: true
+# master-host: 127.0.0.1
+# master-port: 80

@@ -1,6 +1,6 @@
 from locust import HttpUser, between, task, SequentialTaskSet
 
-# locust -f src/task_priority_nested.py -u 1 -r 1 --headless --logfile logs/output.log --loglevel DEBUG --only-summary
+# locust -f src/test/task/task_priority_nested.py -u 1 -r 1 --headless --logfile logs/output.log --loglevel DEBUG --only-summary
 
 
 class LoadUserNestedSequentialTaskSet(HttpUser):

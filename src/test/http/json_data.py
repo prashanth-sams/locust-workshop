@@ -2,7 +2,7 @@ from locust import HttpUser, between, task, SequentialTaskSet
 import json
 import uuid
 
-# locust -f src/http/json_data.py  -u 1 -r 1 --logfile logs/output.log --loglevel DEBUG --only-summary --headless
+# locust -f src/test/http/json_data.py  -u 1 -r 1 --logfile logs/output.log --loglevel DEBUG --only-summary --headless
 
 
 class PerformTask(SequentialTaskSet):

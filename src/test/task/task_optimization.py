@@ -1,6 +1,6 @@
 from locust import HttpUser, between
 
-# locust -f src/task_optimization.py -u 1 -r 1 --headless --logfile logs/output.log --loglevel DEBUG --only-summary
+# locust -f src/test/task/task_optimization.py -u 1 -r 1 --headless --logfile logs/output.log --loglevel DEBUG --only-summary
 
 
 def index_1(self):

@@ -1,6 +1,6 @@
 from locust import HttpUser, between, task, events, TaskSet, SequentialTaskSet
 
-# locust -f src/taskset_nested.py -u 1 -r 1 --headless --logfile logs/output.log --loglevel DEBUG --only-summary
+# locust -f src/test/task/taskset_nested.py -u 1 -r 1 --headless --logfile logs/output.log --loglevel DEBUG --only-summary
 
 
 class LoadUserTaskSet(HttpUser):

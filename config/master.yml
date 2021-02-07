@@ -1,0 +1,13 @@
+[locust script]
+locustfile: src/test/distrib/config_distribution.py
+host: https://moodle.uni-due.de
+
+[locust master mode]
+master: true
+expect-workers: 2
+
+[locust headless]
+headless: true
+users: 5
+spawn-rate: 1
+run-time: 120s

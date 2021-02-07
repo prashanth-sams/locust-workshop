@@ -1,20 +1,29 @@
 from locust import HttpUser, between, task, SequentialTaskSet
 import json
 
-# locust -f src/http/cookies.py  -u 1 -r 1 --logfile logs/output.log --loglevel DEBUG --only-summary --headless
+# locust -f src/test/store/random.py  -u 4 -r 1 --logfile logs/output.log --loglevel DEBUG --only-summary --headless
 
+
+credentials = [
+    ("prashanthsams", "covid@2020"),
+    ("psamuel", "virus@2020")
+]
 
 class PerformTask(SequentialTaskSet):
-    def __init__(self, parent):
-        super().__init__(parent)
+    def on_start(self):
+        self.username = ""
+        self.password = ""
         self.session_id = ""
+
+        if(len(credentials) > 0):
+            self.username, self.password = credentials.pop()
+            credentials.insert(0, (self.username, self.password))
     
     @task
     def login(self):
-        
         with self.client.post(
             "/login/index.php",
-            data=json.dumps({ "username":"prashanthsams", "password":"covid@2020", "anchor":"" }),
+            data=json.dumps({ "username": self.username, "password": self.password, "anchor": "" }),
             headers={"Content-Type": "application/json", "Origin": "https://moodle.uni-due.de", "Referer": "https://moodle.uni-due.de/login/index.php"},
             name="Login Moodle",
             catch_response=True
@@ -22,6 +31,8 @@ class PerformTask(SequentialTaskSet):
             if response.status_code == 200:
                 self.session_id = response.cookies['MoodleSession']
                 response.success()
+            else:
+                response.status_code
 
     @task
     def nextstep(self):

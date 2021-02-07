@@ -11,13 +11,17 @@
 
 - Web Interface
 ```
-locust -f src/task_priority.py
+locust -f src/test/task/hooks.py
 ```
 - Headless Mode
 ```
-locust -f src/task_priority.py -u 5 -r 5 -t 10s --headless --logfile logs/output.log --loglevel DEBUG
+locust -f src/test/task/weightage.py MobileUser -u 5 -r 1 -t 10s --headless --logfile logs/output.log --loglevel DEBUG --only-summary
 ```
-> with hooks, multiple class, weightage with class and task, logs, headless mode, runtime, task reusability, task reusability with weightage, task set, sequential task set, nested task set, interrupt
+> Docker Execution
 ```
-locust -f src/weightage.py MobileUser -u 1 -r 1 --headless --logfile logs/output.log --loglevel DEBUG --only-summary
+docker run -p 8089:8089 -v $(pwd):/mnt/locust locustio/locust:master -f /mnt/locust/src/test/task/hooks -u 4 -r 1
+```
+> Scale up slaves
+``` 
+docker-compose up --scale worker=4
 ```

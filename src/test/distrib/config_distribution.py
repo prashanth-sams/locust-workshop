@@ -1,6 +1,7 @@
 from locust import HttpUser, between, task, events
 
-# locust -f src/hooks.py -u 1 -r 1 --headless --logfile logs/output.log --loglevel DEBUG --only-summary
+# locust --config=config/master.yml
+# locust --config=config/slave.yml
 
 
 @events.test_start.add_listener
@@ -15,8 +16,6 @@ def script_stop(**kwargs):
 
 class LoadUser(HttpUser):
     wait_time = between(1, 3)
-
-    host = "https://api.todoist.com/rest/v1/projects"
 
     def on_start(self):
         print('Start Hook')

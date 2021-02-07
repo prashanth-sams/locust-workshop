@@ -1,7 +1,7 @@
 from locust import HttpUser, between, task, SequentialTaskSet, TaskSet
 import json
 
-# locust -f src/http/taskset_nested.py -u 1 -r 1 --logfile logs/output.log --loglevel DEBUG --only-summary --headless
+# locust -f src/test/http/taskset_nested.py -u 1 -r 1 --logfile logs/output.log --loglevel DEBUG --only-summary --headless
 
 
 class PerformTask(SequentialTaskSet):
