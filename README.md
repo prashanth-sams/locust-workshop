@@ -1,6 +1,8 @@
 # Locust Boilerplate
 > Exercise locust with sample programs
 
+![](https://i.imgur.com/xBUY4kw.png)
+
 ### Prerequisites
 
     python3 -m venv venv/

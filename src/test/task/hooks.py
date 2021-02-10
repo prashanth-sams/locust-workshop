@@ -1,6 +1,10 @@
 from locust import HttpUser, between, task, events
+import locust.stats
+
+locust.stats.CSV_STATS_INTERVAL_SEC=10
 
 # locust -f src/test/task/hooks.py -u 1 -r 1 --headless --logfile logs/output.log --loglevel DEBUG --only-summary
+# locust -f src/test/task/hooks.py -u 1 -r 1 --csv=output --run-time 10s --headless
 
 
 @events.test_start.add_listener
